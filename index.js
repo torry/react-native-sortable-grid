@@ -130,10 +130,8 @@ class SortableGrid extends Component {
   componentWillReceiveProps = (properties) => this.handleNewProps(properties)
 
     handleNewProps = (properties) => {
-        let oldHash = this.items.map((o)=>(o.key)).sort().join(',');
-        let newHash = properties.children.map((o)=>(o.key)).sort().join(',');
         this._assignReceivedPropertiesIntoThis(properties)
-        if( oldHash == newHash) return;
+        if( this.state.activeBlock) return;
         //console.log('fuuuu=>>>>>>>>', oldHash, newHash, this.itemOrder);
         this.items=[]
         this.itemOrder=[]
